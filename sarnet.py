@@ -1,9 +1,6 @@
 ### Before running the code, make sure to convert the original signals to HI indexes. 
-
-# ===========================
-# One-cell, self-contained experiment (Colab/Jupyter)
-# ===========================
-# !pip -q install lightgbm shap
+### The merged.csv contains the necessary HI columns.
+### You can also see the individual HI index data at data folder for reference.
 
 import warnings, random, os
 warnings.filterwarnings("ignore")
@@ -147,7 +144,6 @@ FEATURE_COLS = [
 ]
 
 def make_feature_table(use_spike=True, spike_k=SPIKE_K):
-    """从 df_pred 构建监督学习表（有/无 Spike过滤）"""
     if use_spike:
         thr = df_pred["FFT_bin_2_H_pred"].mean() + spike_k * df_pred["FFT_bin_2_H_pred"].std()
         sub = df_pred.loc[df_pred["FFT_bin_2_H_pred"] > thr].copy()
@@ -187,7 +183,7 @@ def fit_predict(learner, X, y):
 
 # ---------- 8) Metrics ----------
 def eval_metrics(df_used, pred_ttf):
-    """使用与主流程一致的规范化评估"""
+    """employed metrics: RMSE, MAE, R², MAPE (all normalized and consistent with baselines)"""
     df_used = df_used.copy()
     df_used["Predicted_RUL"] = df_used["RUL"].max() - pred_ttf
     true_norm = df_used["RUL"].values / df_used["RUL"].max()
