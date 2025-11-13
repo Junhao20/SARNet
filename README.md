@@ -1,4 +1,4 @@
-# SARNet
+# SARNet: SARNet: A Spike-Aware consecutive validation Framework for Accurate Remaining Useful Life Prediction
 ## Author: 
 - Junhao Fan (Georgetown University, Department of Data Science & Analytics)
 - Wenrui Liang (Tsinghua University, Department of Electrical Engineering)
