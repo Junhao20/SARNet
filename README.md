@@ -15,3 +15,6 @@ In industrial applications, accurately predicting the Remaining Useful Life (RUL
 # Paper link: the preprint of this paper is available at ArXiv
 https://arxiv.org/abs/2510.22955
 **Code link: the code of this paper is available at this repository.**
+
+# Reference
+Please view the reference.bib in this repository for all references used in this paper.
